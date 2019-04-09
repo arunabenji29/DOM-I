@@ -40,13 +40,25 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
-
+let navTag = document.querySelector('nav')
 let anchorTag = document.getElementsByTagName('a')
 let anchorArray = [siteContent["nav"]["nav-item-1"],siteContent["nav"]["nav-item-2"],siteContent["nav"]["nav-item-3"],
 siteContent["nav"]["nav-item-4"],siteContent["nav"]["nav-item-5"],siteContent["nav"]["nav-item-6"]];
 let madeAnchorArray = Array.from(anchorTag);
 let j=0;
+
 madeAnchorArray.forEach( function(element){ element.textContent =  anchorArray[j]; j=j+1})
+madeAnchorArray.forEach(function(element){ element.style.color = 'green'})
+
+const firstNavTag = document.createElement('a')
+firstNavTag.textContent = 'Home';
+firstNavTag.style.color='Green'
+navTag.appendChild(firstNavTag)
+
+const secondNavTag = document.createElement('a')
+secondNavTag.textContent = 'More';
+secondNavTag.style.color='Green'
+navTag.prepend(secondNavTag)
 
 const headerOne = document.querySelector('h1');
 headerOne.textContent = siteContent['cta']["h1"]
